@@ -112,7 +112,27 @@ html {
     width: 28px;
     height: 28px;
     border-radius:20px;
+  }
 
+  .edit-todo {
+    border: none;
+    font-size:16px;
+    background-color:green;
+    color:#fff;
+    outline: none;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius:20px;
+  }
+
+  .fa-pencil {
+    pointer-events: none;
+  }
+
+
+  [contenteditable] {
+    outline: 3px inset blue;
   }
 
   .empty-warning {
