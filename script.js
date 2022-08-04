@@ -40,12 +40,6 @@ function deleteTodo(key) {
     renderTodo(todo);
 }
 
-//edits list item
-function editTodo(key) {
-    //find todo object in the listItems array
-    const index = listItems.findIndex(item => item.id === Number(key)); 
-}
-
 
 //selects form element
 const form = document.querySelector('.js-form');
@@ -103,7 +97,7 @@ function renderTodo(todo) {
     <input id="${todo.id}" type="checkbox" />
     <label for="${todo.id}" class="tick js-tick"></label>
     <span>${todo.text}</span>
-    <button class="edit-todo js-edit-todo"><i class="fa-solid fa-pencil"></i></button>
+   
     <button class="delete-todo js-delete-todo">X</button>
     `;
 
@@ -133,20 +127,11 @@ function renderTodo(todo) {
             const itemKey = event.target.parentElement.dataset.key;
             deleteTodo(itemKey);
         }
-        //user clicks on edit button, the 'contenteditable' is toggled true/false on the span
-        //that sits right before the button
-            //matches method -> tests whether the element would be selected by specified css selector
-        if (event.target.matches('.edit-todo') && event.target !== event.currentTarget) {
-            const text = event.target.previousElementSibling;  //returns element immediately prior, EX -> input span
-            text.toggleAttribute('contenteditable');
-            if (text.contenteditable) {
-                text.focus();
-            }
-        }
+        
     })
   
 
-/*
+
 document.addEventListener('DOMContentLoaded', () => {
     const ref = localStorage.getItem('listItemsRef');
     if (ref) {
@@ -155,4 +140,4 @@ document.addEventListener('DOMContentLoaded', () => {
             renderTodo(t);
         });
     }
-});*/
+}); 
